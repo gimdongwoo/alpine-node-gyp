@@ -1,0 +1,21 @@
+FROM mhart/alpine-node:6.9.5
+
+# Install required dependencies (Alpine Linux packages)
+RUN apk update && \
+  apk add --no-cache \
+    g++ \
+    gcc \
+    git \
+    libev-dev \
+    libevent-dev \
+    libuv-dev \
+    make \
+    openssl-dev \
+    perl \
+    python
+
+# Switch to directory for external dependencies (installed from source)
+WORKDIR /external
+
+# Install (global) NPM packages/dependencies
+RUN npm install -g node-gyp
