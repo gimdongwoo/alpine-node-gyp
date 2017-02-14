@@ -3,6 +3,7 @@ FROM mhart/alpine-node:6.9.5
 # Install required dependencies (Alpine Linux packages)
 RUN apk update && \
   apk add --no-cache \
+    bash \
     g++ \
     gcc \
     git \
